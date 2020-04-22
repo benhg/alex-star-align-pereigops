@@ -32,7 +32,7 @@ config = Config(
 )
 
 # Enable parsl logging if you want, but it prints out a lot of (useful) info
-parsl.set_stream_logger()
+#parsl.set_stream_logger()
 parsl.load(config)
 
 
@@ -132,6 +132,7 @@ def parsl_first_align(directory):
         possible_against = [8, 9, 10, 11, 12, 20, 22]
 
         for against in possible_against:
+            print(f"{file} against{against}")
             align_futures.append(
                 star_align(
                     file, directory, against, inputs=[
