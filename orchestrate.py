@@ -25,7 +25,7 @@ config = Config(
                                                                   nodes_per_block=1,
                                                                   init_blocks=1,
                                                                   max_blocks=4,
-                                                                  scheduler_options="#$ -pe smp 48"
+                                                                  scheduler_options="#$ -pe smp 40"
                                                                   ),
                                       label="workers")
                ],
