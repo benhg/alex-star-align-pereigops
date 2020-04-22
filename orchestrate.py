@@ -130,15 +130,12 @@ def parsl_first_align(directory):
         svalue = int(str(file.split("_")[0].split('s')[1]))
 
         possible_against = [8, 9, 10, 11, 12, 20, 22]
-        against = index
 
-        if against not in possible_against:
-            continue
-
-        align_futures.append(
-            star_align(
-                file, directory, against, inputs=[
-                    index_futures[index]]))
+        for against in possible_against:
+            align_futures.append(
+                star_align(
+                    file, directory, against, inputs=[
+                        index_futures[index]]))
 
     # Wait for the alignment to finish
     align_futures = [a.result() for a in align_futures]
