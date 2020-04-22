@@ -128,20 +128,12 @@ def parsl_first_align(directory):
     align_futures = []
     for index, file in enumerate(files):
         svalue = int(str(file.split("_")[0].split('s')[1]))
-        
-        lane = 0
-        if svalue < 12:
-            lane = 1
-        else:
-            lane = 2
-
-        for i in range(1, 12):
-            if lane == 2:
-                current = i + 11
-            else:
-                current = i
             
-            against = current
+            possible_against = [8,9,10,11,12,20,22]
+            against = index
+
+            if against not in possible_against:
+                continue
 
             align_futures.append(
                 star_align(
